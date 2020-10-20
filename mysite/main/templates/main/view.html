@@ -1,0 +1,11 @@
+{% extends 'main/base.html' %}
+
+{% block title %} 
+View
+{% endblock %}
+
+{% block content %} 
+    {% for poll in user.question.all %}
+        <p><a href="/{{question.id}}">{{question.name}}</a></p>
+    {% endfor %}
+{% endblock %}
