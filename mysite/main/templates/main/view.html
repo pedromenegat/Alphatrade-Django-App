@@ -5,7 +5,13 @@ View
 {% endblock %}
 
 {% block content %} 
-    {% for poll in user.question.all %}
-        <p><a href="/{{question.id}}">{{question.name}}</a></p>
+
+<h1>All polls</h1>
+    
+    <ul class="list-group">
+    {% for names in question %}
+        <li class="list-group-item"><a href="/{{names.id}}"><h3>{{names.question_text}}</h3></a></li>
     {% endfor %}
+    </ul>
+    
 {% endblock %}

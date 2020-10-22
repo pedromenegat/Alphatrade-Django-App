@@ -3,17 +3,22 @@
 {% block title %}Questions{% endblock %}
 
 {% block content %}
-    <h1>{{question.question_text}}</h1>
+    <h1>Add Choices to {{question.question_text}}</h1>
 
     <form method="post" action="#">
         {% csrf_token %}
         <ul>
             {% for choice in question.choice_set.all %}
-                <li><input type="radio", value="voted", name="{{choice.id}}">{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+                <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
             {% endfor %}
         </ul>
-        <button type="submit", name="vote", value="vote">Vote</button>
-        <input type="text", name="choice">
-        <button type="submit", name="newChoice", value="newChoice">Add Choice</button>
+        
+        {% if user == question.user %}
+            <input type="text", name="new">
+            <button type="submit", name="newChoice", value="newChoice", class="btn btn-success">Add Choice</button>
+            <button type="submit", name="vote", value="vote", class="btn btn-success">Go to vote page</button>
+        {% else %}
+        <button type="submit", name="vote", value="vote", class="btn btn-success">Go to vote page</button>
+        {% endif %}
     </form>
 {% endblock %}
