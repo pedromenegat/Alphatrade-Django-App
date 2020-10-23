@@ -27,4 +27,14 @@ Profile
             </div>
         </form>
     </div>
+    <div>
+        <h2>Your polls</h2>
+        <ul class="list-group">
+            {% for names in question %}
+                {% if user == names.user %}
+                    <li class="list-group-item"><a href="/{{names.id}}"><h3>{{names.question_text}}</h3></a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock %}

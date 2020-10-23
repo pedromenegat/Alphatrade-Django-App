@@ -21,10 +21,7 @@ def index(response, id):
     return render(response, "main/questions.html", {"question":question})
 
 def home(request):
-    context = {
-        'questions': Question.objects.all()
-    }
-    return render(request, "main/home.html", context)
+    return render(request, "main/home.html", {})
 
 def create(response):
     if response.method == "POST":

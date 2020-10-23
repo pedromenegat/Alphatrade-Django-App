@@ -3,7 +3,12 @@
 {% block title %}Questions{% endblock %}
 
 {% block content %}
-    <h1>Add Choices to {{question.question_text}}</h1>
+    {% if user == question.user %}
+        <h1>Add Choices to {{question.question_text}}</h1>
+    {% else %}
+        <h1>{{question.question_text}}</h1>
+    {% endif %}
+    
 
     <form method="post" action="#">
         {% csrf_token %}

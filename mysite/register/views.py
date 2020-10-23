@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import RegisterForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from main.models import Question, Choice
 
 # Create your views here.
 def register(request):
@@ -28,11 +29,14 @@ def profile(request):
             return redirect("/profile")
     else:
         u_form = UserUpdateForm(instance=request.user)
-        p_form = ProfileUpdateForm(instance=request.user.profile)      
+        p_form = ProfileUpdateForm(instance=request.user.profile)     
+
+    question = Question.objects.all()
 
     context = {
         'u_form': u_form,
-        'p_form': p_form
+        'p_form': p_form,
+        'question': question
     }
 
     return render(request, 'register/profile.html', context)
