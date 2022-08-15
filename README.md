@@ -1,4 +1,4 @@
-# Alphatrade-Django-App
+# Basic-Django-App
 
 # Informações Gerais
 Esta aplicação é uma implementação básica de formulários com Django. Nela, o usuário poderá usar as seguintes funcionalidades:
