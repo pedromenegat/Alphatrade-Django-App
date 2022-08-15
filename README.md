@@ -1,7 +1,7 @@
 # Alphatrade-Django-App
 
 # Informações Gerais
-Esta aplicação é minha submissão para a última fase do processo seletivo da Alphatrade. Nela, o usuário poderá usar as seguintes funcionalidades:
+Esta aplicação é uma implementação básica de formulários com Django. Nela, o usuário poderá usar as seguintes funcionalidades:
 * Se registrar no site;
 * Fazer login;
 * Criar quantas enquetes quiser com número ilimitado de opções;
